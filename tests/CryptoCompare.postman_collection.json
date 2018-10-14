@@ -11,6 +11,65 @@
 			"item": [
 				{
 					"name": "CoinList",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "801a674d-fd45-4b1e-ad25-9f07b97cfd2f",
+								"exec": [
+									"var pass = true;",
+									"var fail = false;",
+									"var data = JSON.parse(responseBody);",
+									"var cookies = responseCookies;",
+									"var headers = responseHeaders;",
+									"var headersObject = Object.keys(headers);",
+									"var response = data.Response;",
+									"var message = data.Message;",
+									"var baseImageUrl = data.BaseImageUrl;",
+									"var baseLinkUrl = data.BaseLinkUrl;",
+									"var bodyData = data.Data;",
+									"//console.log(data)",
+									"",
+									"if (Object.keys(bodyData).length === 3130) {",
+									"    tests[\"Number of BodyData Objects = \" + Object.keys(bodyData).length] = pass;",
+									"}",
+									"else",
+									"    tests[\"Number of BodyData Objects = \" + Object.keys(bodyData).length] = fail;",
+									"",
+									"if (headersObject.length === 12) {",
+									"    tests[\"Number of Header Objects = \" + headersObject.length] = pass;",
+									"}",
+									"else",
+									"    tests[\"Number of Header Objects = \" + headersObject.length] = fail;",
+									"",
+									"if (response === \"Success\") {",
+									"    tests[\"Response = \" + response] = pass;",
+									"}",
+									"else",
+									"    tests[\"Response = \" + response] = fail;",
+									"",
+									"if (message === \"Coin list succesfully returned!\") {",
+									"    tests[\"Message = \" + message] = pass;",
+									"}",
+									"else",
+									"    tests[\"Message = \" + message] = fail;",
+									"",
+									"if (baseImageUrl === \"https://www.cryptocompare.com\") {",
+									"    tests[\"BaseImageUrl = \" + baseImageUrl] = pass;",
+									"}",
+									"else ",
+									"    tests[\"BaseImageUrl = \" + baseImageUrl] = fail;",
+									"    ",
+									"if (baseLinkUrl === \"https://www.cryptocompare.com\") {",
+									"    tests[\"BaseLinkUrl = \" + baseLinkUrl] = pass;",
+									"}",
+									"else",
+									"    tests[\"BaseLinkUrl = \" + baseLinkUrl] = fail;"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -19,18 +78,9 @@
 							"raw": ""
 						},
 						"url": {
-							"raw": "https://www.cryptocompare.com/api/data/coinlist/",
-							"protocol": "https",
+							"raw": "{{url}}{{coinlist}}",
 							"host": [
-								"www",
-								"cryptocompare",
-								"com"
-							],
-							"path": [
-								"api",
-								"data",
-								"coinlist",
-								""
+								"{{url}}{{coinlist}}"
 							]
 						}
 					},
