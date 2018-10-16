@@ -29,13 +29,13 @@
 									"var baseLinkUrl = data.BaseLinkUrl;",
 									"var bodyData = data.Data;",
 									"//console.log(data)",
-									"", /*
+									"", 
 									"if (Object.keys(bodyData).length === 3130) {",
 									"    tests[\"Number of BodyData Objects = \" + Object.keys(bodyData).length] = pass;",
 									"}",
 									"else",
 									"    tests[\"Number of BodyData Objects = \" + Object.keys(bodyData).length] = fail;",
-									"", */
+									"", 
 									"if (headersObject.length === 12) {",
 									"    tests[\"Number of Header Objects = \" + headersObject.length] = pass;",
 									"}",
