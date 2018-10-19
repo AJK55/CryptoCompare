@@ -15,7 +15,7 @@
 						{
 							"listen": "test",
 							"script": {
-								"id": "801a674d-fd45-4b1e-ad25-9f07b97cfd2f",
+								"id": "2cd112b9-bfa6-49b1-9274-90fbe6a412f2",
 								"exec": [
 									"var pass = true;",
 									"var fail = false;",
@@ -28,7 +28,7 @@
 									"var baseImageUrl = data.BaseImageUrl;",
 									"var baseLinkUrl = data.BaseLinkUrl;",
 									"var bodyData = data.Data;",
-									"//console.log(data)",
+									"console.log(data)",
 									"",
 									"/*",
 									"if (Object.keys(bodyData).length === 3130) {",
@@ -101,6 +101,361 @@
 					"listen": "test",
 					"script": {
 						"id": "3fdbac08-9ab4-4345-8999-108e3b3b8be4",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Price",
+			"item": [
+				{
+					"name": "Single Symbol Price",
+					"item": [
+						{
+							"name": "Single Symbol Price - BTC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5c3d9569-7b97-44b8-8631-4fe583b3cc9d",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f72a1f83-4994-427b-a95c-7bd10131b5d2",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{price}}?{{fsym}}={{BTC}}&{{tsyms}}={{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
+									"host": [
+										"{{url}}{{price}}"
+									],
+									"query": [
+										{
+											"key": "{{fsym}}",
+											"value": "{{BTC}}"
+										},
+										{
+											"key": "{{tsyms}}",
+											"value": "{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Symbol Price - ETH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5c3d9569-7b97-44b8-8631-4fe583b3cc9d",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f72a1f83-4994-427b-a95c-7bd10131b5d2",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{price}}?{{fsym}}={{ETH}}&{{tsyms}}={{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
+									"host": [
+										"{{url}}{{price}}"
+									],
+									"query": [
+										{
+											"key": "{{fsym}}",
+											"value": "{{ETH}}"
+										},
+										{
+											"key": "{{tsyms}}",
+											"value": "{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Single Symbol Price plus Exchange",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "5c3d9569-7b97-44b8-8631-4fe583b3cc9d",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"id": "f72a1f83-4994-427b-a95c-7bd10131b5d2",
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{price}}?{{fsym}}={{BTC}}&{{tsyms}}={{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}&{{CB}}",
+									"host": [
+										"{{url}}{{price}}"
+									],
+									"query": [
+										{
+											"key": "{{fsym}}",
+											"value": "{{BTC}}"
+										},
+										{
+											"key": "{{tsyms}}",
+											"value": "{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
+										},
+										{
+											"key": "{{CB}}",
+											"value": null
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Multiple Symbols Price",
+					"item": [
+						{
+							"name": "Multiple Symbols Price - ETH & DASH",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e137cffb-083e-407f-ac0e-28f81357b875",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://min-api.cryptocompare.com/data/pricemulti?fsyms={{ETH}},{{DASH}}&tsyms={{BTC}},{{USD}},{{EUR}}",
+									"protocol": "https",
+									"host": [
+										"min-api",
+										"cryptocompare",
+										"com"
+									],
+									"path": [
+										"data",
+										"pricemulti"
+									],
+									"query": [
+										{
+											"key": "fsyms",
+											"value": "{{ETH}},{{DASH}}"
+										},
+										{
+											"key": "tsyms",
+											"value": "{{BTC}},{{USD}},{{EUR}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Multiple Symbols Price - DASH & ETH & BTC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "16edcead-b3c0-42ab-8183-c1260ef71af6",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://min-api.cryptocompare.com/data/pricemulti?fsyms={{DASH}},{{ETH}},{{BTC}}&tsyms={{BTC}},{{USD}},{{EUR}},{{JPY}}",
+									"protocol": "https",
+									"host": [
+										"min-api",
+										"cryptocompare",
+										"com"
+									],
+									"path": [
+										"data",
+										"pricemulti"
+									],
+									"query": [
+										{
+											"key": "fsyms",
+											"value": "{{DASH}},{{ETH}},{{BTC}}"
+										},
+										{
+											"key": "tsyms",
+											"value": "{{BTC}},{{USD}},{{EUR}},{{JPY}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Multiple Symbols Price plus Exchange",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "16edcead-b3c0-42ab-8183-c1260ef71af6",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://min-api.cryptocompare.com/data/pricemulti?fsyms={{BTC}},{{ETH}}&tsyms={{USD}}&e={{CB}}",
+									"protocol": "https",
+									"host": [
+										"min-api",
+										"cryptocompare",
+										"com"
+									],
+									"path": [
+										"data",
+										"pricemulti"
+									],
+									"query": [
+										{
+											"key": "fsyms",
+											"value": "{{BTC}},{{ETH}}"
+										},
+										{
+											"key": "tsyms",
+											"value": "{{USD}}"
+										},
+										{
+											"key": "e",
+											"value": "{{CB}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c2faa922-8a73-45e2-b6ee-13e94619b9bf",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "f8caf584-c7a1-4873-9980-7780489d55b2",
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
