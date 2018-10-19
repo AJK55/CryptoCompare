@@ -418,6 +418,194 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Multiple Symbols Full Data",
+					"item": [
+						{
+							"name": "Multiple Symbols Full Data",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e137cffb-083e-407f-ac0e-28f81357b875",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{priceMF}}?fsyms={{ETH}},{{DASH}}&tsyms={{BTC}},{{USD}},{{EUR}}",
+									"host": [
+										"{{url}}{{priceMF}}"
+									],
+									"query": [
+										{
+											"key": "fsyms",
+											"value": "{{ETH}},{{DASH}}"
+										},
+										{
+											"key": "tsyms",
+											"value": "{{BTC}},{{USD}},{{EUR}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Multiple Symbols Full Data - DASH & ETH & BTC",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "16edcead-b3c0-42ab-8183-c1260ef71af6",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{priceMF}}?fsyms={{DASH}},{{ETH}},{{BTC}}&tsyms={{BTC}},{{USD}},{{EUR}},{{JPY}}",
+									"host": [
+										"{{url}}{{priceMF}}"
+									],
+									"query": [
+										{
+											"key": "fsyms",
+											"value": "{{DASH}},{{ETH}},{{BTC}}"
+										},
+										{
+											"key": "tsyms",
+											"value": "{{BTC}},{{USD}},{{EUR}},{{JPY}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Multiple Symbols Full Data plus Exchange",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "16edcead-b3c0-42ab-8183-c1260ef71af6",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{priceMF}}?fsyms={{BTC}},{{ETH}}&tsyms={{USD}}&e={{CB}}",
+									"host": [
+										"{{url}}{{priceMF}}"
+									],
+									"query": [
+										{
+											"key": "fsyms",
+											"value": "{{BTC}},{{ETH}}"
+										},
+										{
+											"key": "tsyms",
+											"value": "{{USD}}"
+										},
+										{
+											"key": "e",
+											"value": "{{CB}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Generate Custom Average",
+					"item": [
+						{
+							"name": "Generate Custom Average",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "31f1093b-343f-47ff-b0a0-2aad28a4d2ea",
+										"exec": [
+											"var pass = true;",
+											"var fail = false;",
+											"var data = JSON.parse(responseBody);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{url}}{{avg}}?fsym={{BTC}}&tsym={{USD}}&e={{CB}},{{BF}}",
+									"host": [
+										"{{url}}{{avg}}"
+									],
+									"query": [
+										{
+											"key": "fsym",
+											"value": "{{BTC}}"
+										},
+										{
+											"key": "tsym",
+											"value": "{{USD}}"
+										},
+										{
+											"key": "e",
+											"value": "{{CB}},{{BF}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			],
 			"event": [
