@@ -28,7 +28,7 @@
 									"var baseImageUrl = data.BaseImageUrl;",
 									"var baseLinkUrl = data.BaseLinkUrl;",
 									"var bodyData = data.Data;",
-									"console.log(data)",
+									"//console.log(data)",
 									"",
 									"/*",
 									"if (Object.keys(bodyData).length === 3130) {",
@@ -310,16 +310,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://min-api.cryptocompare.com/data/pricemulti?fsyms={{ETH}},{{DASH}}&tsyms={{BTC}},{{USD}},{{EUR}}",
-									"protocol": "https",
+									"raw": "{{url}}{{priceM}}?fsyms={{ETH}},{{DASH}}&tsyms={{BTC}},{{USD}},{{EUR}}",
 									"host": [
-										"min-api",
-										"cryptocompare",
-										"com"
-									],
-									"path": [
-										"data",
-										"pricemulti"
+										"{{url}}{{priceM}}"
 									],
 									"query": [
 										{
@@ -359,16 +352,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://min-api.cryptocompare.com/data/pricemulti?fsyms={{DASH}},{{ETH}},{{BTC}}&tsyms={{BTC}},{{USD}},{{EUR}},{{JPY}}",
-									"protocol": "https",
+									"raw": "{{url}}{{priceM}}?fsyms={{DASH}},{{ETH}},{{BTC}}&tsyms={{BTC}},{{USD}},{{EUR}},{{JPY}}",
 									"host": [
-										"min-api",
-										"cryptocompare",
-										"com"
-									],
-									"path": [
-										"data",
-										"pricemulti"
+										"{{url}}{{priceM}}"
 									],
 									"query": [
 										{
@@ -408,16 +394,9 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "https://min-api.cryptocompare.com/data/pricemulti?fsyms={{BTC}},{{ETH}}&tsyms={{USD}}&e={{CB}}",
-									"protocol": "https",
+									"raw": "{{url}}{{priceM}}?fsyms={{BTC}},{{ETH}}&tsyms={{USD}}&e={{CB}}",
 									"host": [
-										"min-api",
-										"cryptocompare",
-										"com"
-									],
-									"path": [
-										"data",
-										"pricemulti"
+										"{{url}}{{priceM}}"
 									],
 									"query": [
 										{
