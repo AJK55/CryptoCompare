@@ -11,10 +11,12 @@ on_failure: always # default: always
 
 install:
   - npm install newman
+  - npm install lodash
 
 before_script:
   - node --version
   - npm --version
+  - lodash --version
   - node_modules/.bin/newman --version
 
 script:
