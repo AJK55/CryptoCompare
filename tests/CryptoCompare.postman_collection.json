@@ -127,8 +127,36 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
+											"var _ = require('lodash');",
 											"var data = JSON.parse(responseBody);",
-											""
+											"var header = responseHeaders;",
+											"var objects = Object.keys(data)",
+											"var BTC = data.BTC;",
+											"",
+											"if (BTC === 1) {",
+											"    tests[\"BTC = \" + BTC] = pass;",
+											"}",
+											"else",
+											"    tests[\"BTC = \" + BTC] = fail;",
+											"",
+											"if (objects.length === 5) {",
+											"    tests[\"Number of Objects Returned = \" + objects.length] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of Objects Returned = \" + objects.length] = fail;",
+											"",
+											"",
+											"if (header.Server === \"nginx/1.4.6 (Ubuntu)\") {",
+											"    tests[\"Header Server = \" + header.Server] = pass;",
+											"}",
+											"else",
+											"    tests[\"Header Server = \" + header.Server] = fail;",
+											"",
+											"if (header['Content-Type'] === \"application/json; charset=UTF-8\") {",
+											"    tests[\"Header Content-Type = \" + header['Content-Type'] ] = pass;",
+											"}",
+											"else",
+											"    tests[\"Header Content-Type = \" + header['Content-Type'] ] = fail;"
 										],
 										"type": "text/javascript"
 									}
@@ -147,24 +175,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{price}}?{{fsym}}={{BTC}}&{{tsyms}}={{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
+									"raw": "{{url}}{{price}}{{fsym}}{{BTC}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
 									"host": [
-										"{{url}}{{price}}"
-									],
-									"query": [
-										{
-											"key": "{{fsym}}",
-											"value": "{{BTC}}"
-										},
-										{
-											"key": "{{tsyms}}",
-											"value": "{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
-										}
+										"{{url}}{{price}}{{fsym}}{{BTC}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
 									]
 								}
 							},
@@ -180,8 +195,36 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
+											"var _ = require('lodash');",
 											"var data = JSON.parse(responseBody);",
-											""
+											"var header = responseHeaders;",
+											"var objects = Object.keys(data)",
+											"var ETH = data.ETH;",
+											"",
+											"if (ETH === 1) {",
+											"    tests[\"ETH = \" + ETH] = pass;",
+											"}",
+											"else",
+											"    tests[\"ETH = \" + ETH] = fail;",
+											"",
+											"if (objects.length === 5) {",
+											"    tests[\"Number of Objects Returned = \" + objects.length] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of Objects Returned = \" + objects.length] = fail;",
+											"",
+											"",
+											"if (header.Server === \"nginx/1.4.6 (Ubuntu)\") {",
+											"    tests[\"Header Server = \" + header.Server] = pass;",
+											"}",
+											"else",
+											"    tests[\"Header Server = \" + header.Server] = fail;",
+											"",
+											"if (header['Content-Type'] === \"application/json; charset=UTF-8\") {",
+											"    tests[\"Header Content-Type = \" + header['Content-Type'] ] = pass;",
+											"}",
+											"else",
+											"    tests[\"Header Content-Type = \" + header['Content-Type'] ] = fail;"
 										],
 										"type": "text/javascript"
 									}
@@ -200,24 +243,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{price}}?{{fsym}}={{ETH}}&{{tsyms}}={{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
+									"raw": "{{url}}{{price}}{{fsym}}{{ETH}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
 									"host": [
-										"{{url}}{{price}}"
-									],
-									"query": [
-										{
-											"key": "{{fsym}}",
-											"value": "{{ETH}}"
-										},
-										{
-											"key": "{{tsyms}}",
-											"value": "{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
-										}
+										"{{url}}{{price}}{{fsym}}{{ETH}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
 									]
 								}
 							},
@@ -233,8 +263,36 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
+											"var _ = require('lodash');",
 											"var data = JSON.parse(responseBody);",
-											""
+											"var header = responseHeaders;",
+											"var objects = Object.keys(data)",
+											"var BTC = data.BTC;",
+											"",
+											"if (BTC === 1) {",
+											"    tests[\"BTC = \" + BTC] = pass;",
+											"}",
+											"else",
+											"    tests[\"BTC = \" + BTC] = fail;",
+											"",
+											"if (objects.length === 5) {",
+											"    tests[\"Number of Objects Returned = \" + objects.length] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of Objects Returned = \" + objects.length] = fail;",
+											"",
+											"",
+											"if (header.Server === \"nginx/1.4.6 (Ubuntu)\") {",
+											"    tests[\"Header Server = \" + header.Server] = pass;",
+											"}",
+											"else",
+											"    tests[\"Header Server = \" + header.Server] = fail;",
+											"",
+											"if (header['Content-Type'] === \"application/json; charset=UTF-8\") {",
+											"    tests[\"Header Content-Type = \" + header['Content-Type'] ] = pass;",
+											"}",
+											"else",
+											"    tests[\"Header Content-Type = \" + header['Content-Type'] ] = fail;"
 										],
 										"type": "text/javascript"
 									}
@@ -253,28 +311,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{price}}?{{fsym}}={{BTC}}&{{tsyms}}={{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}&{{CB}}",
+									"raw": "{{url}}{{price}}{{fsym}}{{BTC}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}&{{CB}}",
 									"host": [
-										"{{url}}{{price}}"
-									],
-									"query": [
-										{
-											"key": "{{fsym}}",
-											"value": "{{BTC}}"
-										},
-										{
-											"key": "{{tsyms}}",
-											"value": "{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}"
-										},
-										{
-											"key": "{{CB}}",
-											"value": null
-										}
+										"{{url}}{{price}}{{fsym}}{{BTC}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}&{{CB}}"
 									]
 								}
 							},
@@ -296,7 +337,49 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
-											"var data = JSON.parse(responseBody);"
+											"var _ = require('lodash');",
+											"var data = JSON.parse(responseBody);",
+											"var objects = Object.keys(data);",
+											"",
+											"",
+											"if (Object.keys(data.ETH).length=== 5) {",
+											"    tests[\"Number of ETH Objects returned = \" + Object.keys(data.ETH).length] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of ETH Objects returned = \" + Object.keys(data.ETH).length] = fail;",
+											"",
+											"if (Object.keys(data.DASH).length=== 5) {",
+											"    tests[\"Number of DASH Objects returned = \" + Object.keys(data.DASH).length] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of DASH Objects returned = \" + Object.keys(data.DASH).length] = fail;",
+											"",
+											"if (_.includes(objects, 'ETH' )) {",
+											"    tests[\"ETH returned in \" + objects] = pass;",
+											"}",
+											"else",
+											"    tests[\"ETH returned in \" + objects] = fail;",
+											"",
+											"if (_.includes(objects, 'DASH' )) {",
+											"    tests[\"DASH returned in \" + objects] = pass;",
+											"}",
+											"else",
+											"    tests[\"DASH returned in \" + objects] = fail;",
+											"",
+											"if (data.ETH.ETH === 1 ) {",
+											"    tests[\"ETH ETH = \" + data.ETH.ETH] = pass;",
+											"}",
+											"else",
+											"    tests[\"ETH ETH = \" + data.ETH.ETH] = fail;",
+											"",
+											"if (data.DASH.DASH === 1 ) {",
+											"    tests[\"DASH DASH = \" + data.DASH.DASH] = pass;",
+											"}",
+											"else",
+											"    tests[\"DASH DASH = \" + data.DASH.DASH] = fail;",
+											"",
+											"",
+											"    "
 										],
 										"type": "text/javascript"
 									}
@@ -305,24 +388,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{priceM}}?fsyms={{ETH}},{{DASH}}&tsyms={{BTC}},{{USD}},{{EUR}}",
+									"raw": "{{url}}{{priceM}}{{fsyms}}{{ETH}},{{DASH}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{DASH}},{{ETH}}",
 									"host": [
-										"{{url}}{{priceM}}"
-									],
-									"query": [
-										{
-											"key": "fsyms",
-											"value": "{{ETH}},{{DASH}}"
-										},
-										{
-											"key": "tsyms",
-											"value": "{{BTC}},{{USD}},{{EUR}}"
-										}
+										"{{url}}{{priceM}}{{fsyms}}{{ETH}},{{DASH}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{DASH}},{{ETH}}"
 									]
 								}
 							},
@@ -338,7 +408,49 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
-											"var data = JSON.parse(responseBody);"
+											"var _ = require('lodash');",
+											"var data = JSON.parse(responseBody);",
+											"var objects = Object.keys(data);",
+											"",
+											"",
+											"if (Object.keys(data.ETH).length=== 6) {",
+											"    tests[\"Number of ETH Objects returned = \" + Object.keys(data.ETH).length] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of ETH Objects returned = \" + Object.keys(data.ETH).length] = fail;",
+											"",
+											"if (Object.keys(data.DASH).length=== 6) {",
+											"    tests[\"Number of DASH Objects returned = \" + Object.keys(data.DASH).length] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of DASH Objects returned = \" + Object.keys(data.DASH).length] = fail;",
+											"",
+											"if (_.includes(objects, 'ETH' )) {",
+											"    tests[\"ETH returned in \" + objects] = pass;",
+											"}",
+											"else",
+											"    tests[\"ETH returned in \" + objects] = fail;",
+											"",
+											"if (_.includes(objects, 'DASH' )) {",
+											"    tests[\"DASH returned in \" + objects] = pass;",
+											"}",
+											"else",
+											"    tests[\"DASH returned in \" + objects] = fail;",
+											"",
+											"if (data.ETH.ETH === 1 ) {",
+											"    tests[\"ETH ETH = \" + data.ETH.ETH] = pass;",
+											"}",
+											"else",
+											"    tests[\"ETH ETH = \" + data.ETH.ETH] = fail;",
+											"",
+											"if (data.DASH.DASH === 1 ) {",
+											"    tests[\"DASH DASH = \" + data.DASH.DASH] = pass;",
+											"}",
+											"else",
+											"    tests[\"DASH DASH = \" + data.DASH.DASH] = fail;",
+											"",
+											"",
+											"    "
 										],
 										"type": "text/javascript"
 									}
@@ -347,24 +459,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{priceM}}?fsyms={{DASH}},{{ETH}},{{BTC}}&tsyms={{BTC}},{{USD}},{{EUR}},{{JPY}}",
+									"raw": "{{url}}{{priceM}}{{fsyms}}{{DASH}},{{ETH}},{{BTC}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{JPY}},{{ETH}},{{DASH}}",
 									"host": [
-										"{{url}}{{priceM}}"
-									],
-									"query": [
-										{
-											"key": "fsyms",
-											"value": "{{DASH}},{{ETH}},{{BTC}}"
-										},
-										{
-											"key": "tsyms",
-											"value": "{{BTC}},{{USD}},{{EUR}},{{JPY}}"
-										}
+										"{{url}}{{priceM}}{{fsyms}}{{DASH}},{{ETH}},{{BTC}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{JPY}},{{ETH}},{{DASH}}"
 									]
 								}
 							},
@@ -389,28 +488,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{priceM}}?fsyms={{BTC}},{{ETH}}&tsyms={{USD}}&e={{CB}}",
+									"raw": "{{url}}{{priceM}}{{fsyms}}{{BTC}},{{ETH}}{{tsyms}}{{USD}}{{e}}{{CB}}",
 									"host": [
-										"{{url}}{{priceM}}"
-									],
-									"query": [
-										{
-											"key": "fsyms",
-											"value": "{{BTC}},{{ETH}}"
-										},
-										{
-											"key": "tsyms",
-											"value": "{{USD}}"
-										},
-										{
-											"key": "e",
-											"value": "{{CB}}"
-										}
+										"{{url}}{{priceM}}{{fsyms}}{{BTC}},{{ETH}}{{tsyms}}{{USD}}{{e}}{{CB}}"
 									]
 								}
 							},
@@ -441,24 +523,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{priceMF}}?fsyms={{ETH}},{{DASH}}&tsyms={{BTC}},{{USD}},{{EUR}}",
+									"raw": "{{url}}{{priceMF}}{{fsyms}}{{ETH}},{{DASH}}{{tsyms}}{{BTC}},{{USD}},{{EUR}}",
 									"host": [
-										"{{url}}{{priceMF}}"
-									],
-									"query": [
-										{
-											"key": "fsyms",
-											"value": "{{ETH}},{{DASH}}"
-										},
-										{
-											"key": "tsyms",
-											"value": "{{BTC}},{{USD}},{{EUR}}"
-										}
+										"{{url}}{{priceMF}}{{fsyms}}{{ETH}},{{DASH}}{{tsyms}}{{BTC}},{{USD}},{{EUR}}"
 									]
 								}
 							},
@@ -483,24 +552,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{priceMF}}?fsyms={{DASH}},{{ETH}},{{BTC}}&tsyms={{BTC}},{{USD}},{{EUR}},{{JPY}}",
+									"raw": "{{url}}{{priceMF}}{{fsyms}}{{DASH}},{{ETH}},{{BTC}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{JPY}}",
 									"host": [
-										"{{url}}{{priceMF}}"
-									],
-									"query": [
-										{
-											"key": "fsyms",
-											"value": "{{DASH}},{{ETH}},{{BTC}}"
-										},
-										{
-											"key": "tsyms",
-											"value": "{{BTC}},{{USD}},{{EUR}},{{JPY}}"
-										}
+										"{{url}}{{priceMF}}{{fsyms}}{{DASH}},{{ETH}},{{BTC}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{JPY}}"
 									]
 								}
 							},
@@ -525,28 +581,11 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {
-									"mode": "raw",
-									"raw": ""
-								},
+								"body": {},
 								"url": {
-									"raw": "{{url}}{{priceMF}}?fsyms={{BTC}},{{ETH}}&tsyms={{USD}}&e={{CB}}",
+									"raw": "{{url}}{{priceMF}}{{fsyms}}{{BTC}},{{ETH}}{{tsyms}}{{USD}}{{e}}{{CB}}",
 									"host": [
-										"{{url}}{{priceMF}}"
-									],
-									"query": [
-										{
-											"key": "fsyms",
-											"value": "{{BTC}},{{ETH}}"
-										},
-										{
-											"key": "tsyms",
-											"value": "{{USD}}"
-										},
-										{
-											"key": "e",
-											"value": "{{CB}}"
-										}
+										"{{url}}{{priceMF}}{{fsyms}}{{BTC}},{{ETH}}{{tsyms}}{{USD}}{{e}}{{CB}}"
 									]
 								}
 							},
@@ -577,28 +616,29 @@
 							"request": {
 								"method": "GET",
 								"header": [],
+								"body": {},
+								"url": {
+									"raw": "{{url}}{{avg}}{{fsym}}{{BTC}}{{tsym}}{{USD}}{{e}}{{CB}},{{BF}}",
+									"host": [
+										"{{url}}{{avg}}{{fsym}}{{BTC}}{{tsym}}{{USD}}{{e}}{{CB}},{{BF}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Generate Custom Average - Poloniex,Bitfinex",
+							"request": {
+								"method": "GET",
+								"header": [],
 								"body": {
 									"mode": "raw",
 									"raw": ""
 								},
 								"url": {
-									"raw": "{{url}}{{avg}}?fsym={{BTC}}&tsym={{USD}}&e={{CB}},{{BF}}",
+									"raw": "{{url}}{{avg}}{{fsym}}{{ZEC}}{{tsym}}{{USD}}{{e}}{{P}},{{BF}}",
 									"host": [
-										"{{url}}{{avg}}"
-									],
-									"query": [
-										{
-											"key": "fsym",
-											"value": "{{BTC}}"
-										},
-										{
-											"key": "tsym",
-											"value": "{{USD}}"
-										},
-										{
-											"key": "e",
-											"value": "{{CB}},{{BF}}"
-										}
+										"{{url}}{{avg}}{{fsym}}{{ZEC}}{{tsym}}{{USD}}{{e}}{{P}},{{BF}}"
 									]
 								}
 							},
@@ -608,6 +648,7 @@
 					"_postman_isSubFolder": true
 				}
 			],
+			"description": "Get the current price of any cryptocurrency in any other currency that you need.\r\nIf the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion. If the opposite pair trades we invert it (eg.: BTC-XMR)",
 			"event": [
 				{
 					"listen": "prerequest",
@@ -623,6 +664,143 @@
 					"listen": "test",
 					"script": {
 						"id": "f8caf584-c7a1-4873-9980-7780489d55b2",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Historical Data",
+			"item": [
+				{
+					"name": "Historical Daily OHLCV",
+					"item": [],
+					"description": "Get open, high, low, close, volumefrom and volumeto from the daily historical data.The values are based on 00:00 GMT time.It uses BTC conversion if data is not available because the coin is not trading in the specified currency.",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Historical Hourly OHLCV",
+					"item": [],
+					"description": "Get open, high, low, close, volumefrom and volumeto from the hourly historical data. It uses BTC conversion if data is not available because the coin is not trading in the specified currency.",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Historical Minute OHLCV",
+					"item": [],
+					"description": "Get open, high, low, close, volumefrom and volumeto from the each minute historical data. This data is only stored for 7 days, if you need more, use the hourly or daily path.\r\n\r\nIt uses BTC conversion if data is not available because the coin is not trading in the specified currency.",
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Historical Day OHLCV for a timestamp",
+					"item": [],
+					"description": "Get the price of any cryptocurrency in any other currency that you need at a given timestamp. The price comes from the daily info - so it would be the price at the end of the day GMT based on the requested TS.\r\nIf the crypto does not trade directly into the toSymbol requested, BTC will be used for conversion. Tries to get direct trading pair data, if there is none or it is more than 10 days before the ts requested, it uses BTC conversion. If the opposite pair trades we invert it (eg.: BTC-XMR)\r\nThe calculation types are:\r\nClose - a Close of the day close price\r\nMidHighLow - the average between the 24 H high and low\r\nVolFVolT - the total volume to / the total volume from",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "80fd6170-9d1d-4c52-94ed-06497299000a",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "c040fa3b-d6f0-429a-b591-1d779ba22120",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Historical Day Average Price",
+					"item": [],
+					"description": "Get day average price. The values are based on hourly vwap data and the average can be calculated in different ways. It uses BTC conversion if data is not available because the coin is not trading in the specified currency. If tryConversion is set to false it will give you the direct data. If no toTS is given it will automatically do the current day. Also for different timezones use the UTCHourDiff param \r\nThe calculation types are: \r\nHourVWAP - a VWAP of the hourly close price\r\nMidHighLow - the average between the 24 H high and low.\r\nVolFVolT - the total volume from / the total volume to (only avilable with tryConversion set to false so only for direct trades but the value should be the most accurate average day price)",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "4bacad8c-f7a1-4351-b2d2-b68596019edb",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdf92a97-8299-4c13-a1b0-f29024611451",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Historical Daily Exchange Volume",
+					"item": [],
+					"description": "Get total volume from the daily historical exchange data.The values are based on 00:00 GMT time. We store the data in BTC and we multiply by the BTC-tsym value",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "9c9b326a-07da-4277-909e-61c0bc3e9867",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "fdac87e3-a742-4671-ac99-6a3b26ececfd",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Historical Hourly Exchange Volume",
+					"item": [],
+					"description": "Get total volume from the hourly historical exchange data.We store the data in BTC and we multiply by the BTC-tsym value",
+					"_postman_isSubFolder": true
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "e53432f4-d6d8-4563-b8de-1ebe5c88696c",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "83ef0265-d4ad-4d44-9cea-8afe45a2a26e",
 						"type": "text/javascript",
 						"exec": [
 							"pm.test(\"Status code is 200\", function () {",
