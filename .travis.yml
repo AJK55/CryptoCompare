@@ -16,7 +16,7 @@ install:
 before_script:
   - node --version
   - npm --version
-  - lodash --version
+  - npm lodash --version
   - node_modules/.bin/newman --version
 
 script:
