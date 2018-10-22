@@ -168,7 +168,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{price}}{{fsym}}{{BTC}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
 									"host": [
@@ -230,7 +233,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{price}}{{fsym}}{{ETH}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}",
 									"host": [
@@ -292,7 +298,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{price}}{{fsym}}{{BTC}}{{tsyms}}{{USD}},{{JPY}},{{EUR}},{{BTC}},{{ETH}}&{{CB}}",
 									"host": [
@@ -301,6 +310,28 @@
 								}
 							},
 							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "a41c5874-1cf2-48b4-a2e6-c03c2a99db72",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "1cc39800-7647-48fe-85ae-35ba66b7229e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					],
 					"_postman_isSubFolder": true
@@ -369,7 +400,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{priceM}}{{fsyms}}{{ETH}},{{DASH}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{DASH}},{{ETH}}",
 									"host": [
@@ -440,7 +474,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{priceM}}{{fsyms}}{{DASH}},{{ETH}},{{BTC}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{JPY}},{{ETH}},{{DASH}}",
 									"host": [
@@ -460,7 +497,42 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
-											"var data = JSON.parse(responseBody);"
+											"var _ = require('lodash');",
+											"var data = JSON.parse(responseBody);",
+											"var objects = Object.keys(data);",
+											"var btc = Object.keys(data.BTC)[0];",
+											"var eth = Object.keys(data.ETH)[0];",
+											"",
+											"",
+											"if (objects.includes(\"BTC\")) {",
+											"    tests[\"Object contains BTC\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Object contains BTC\"] = fail;",
+											"    ",
+											"if (objects.includes(\"ETH\")) {",
+											"    tests[\"Object contains ETH\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Object contains ETH\"] = fail;",
+											"",
+											"if (btc === \"USD\") {",
+											"    tests[\"Base Currency = \" + btc] = pass;",
+											"}",
+											"else",
+											"    tests[\"Base Currency = \" + btc] = fail;",
+											"",
+											"if (btc === \"USD\") {",
+											"    tests[\"Base Currency = \" + btc] = pass;",
+											"}",
+											"else",
+											"    tests[\"Base Currency = \" + btc] = fail;",
+											"    ",
+											"if (eth === \"USD\") {",
+											"    tests[\"Base Currency = \" + eth] = pass;",
+											"}",
+											"else",
+											"    tests[\"Base Currency = \" + eth] = fail;"
 										],
 										"type": "text/javascript"
 									}
@@ -469,7 +541,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{priceM}}{{fsyms}}{{BTC}},{{ETH}}{{tsyms}}{{USD}}{{e}}{{CB}}",
 									"host": [
@@ -478,6 +553,28 @@
 								}
 							},
 							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "87aa02ec-3215-4db4-80fb-f7bbbe82fda8",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "32f40834-c635-48a4-ae2a-c02b589578ef",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					],
 					"_postman_isSubFolder": true
@@ -495,7 +592,27 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
-											"var data = JSON.parse(responseBody);"
+											"var data = JSON.parse(responseBody);",
+											"var dashDisplayB = data.DISPLAY.DASH.BTC;",
+											"var dashDisplayE = data.DISPLAY.DASH.EUR;",
+											"var dashDisplayU = data.DISPLAY.DASH.USD;",
+											"var dashRawB = data.RAW.DASH.BTC;",
+											"var dashRawE = data.RAW.DASH.EUR;",
+											"var dashRawU = data.RAW.DASH.USD;",
+											"//console.log(data)",
+											"//console.log(Object.keys(dashDisplayB).length === Object.keys(dashdisplayE).length && Object.keys(dashDisplayB).length === Object.keys(dashdisplayU).length)",
+											"",
+											"if (Object.keys(dashDisplayB).length === Object.keys(dashDisplayE).length && Object.keys(dashDisplayB).length === Object.keys(dashDisplayU).length) {",
+											"    tests[\"Number of DASH Display Objects\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of DASH Display Objects\"] = fail;",
+											"",
+											"if (Object.keys(dashRawB).length === Object.keys(dashRawE).length && Object.keys(dashRawB).length === Object.keys(dashRawU).length) {",
+											"    tests[\"Number of DASH Raw Objects\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of DASH Raw Objects\"] = fail;"
 										],
 										"type": "text/javascript"
 									}
@@ -504,7 +621,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{priceMF}}{{fsyms}}{{ETH}},{{DASH}}{{tsyms}}{{BTC}},{{USD}},{{EUR}}",
 									"host": [
@@ -524,7 +644,27 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
-											"var data = JSON.parse(responseBody);"
+											"var data = JSON.parse(responseBody);",
+											"var dashDisplayB = data.DISPLAY.DASH.BTC;",
+											"var dashDisplayE = data.DISPLAY.DASH.EUR;",
+											"var dashDisplayU = data.DISPLAY.DASH.USD;",
+											"var dashRawB = data.RAW.DASH.BTC;",
+											"var dashRawE = data.RAW.DASH.EUR;",
+											"var dashRawU = data.RAW.DASH.USD;",
+											"//console.log(data)",
+											"//console.log(Object.keys(dashDisplayB).length === Object.keys(dashdisplayE).length && Object.keys(dashDisplayB).length === Object.keys(dashdisplayU).length)",
+											"",
+											"if (Object.keys(dashDisplayB).length === Object.keys(dashDisplayE).length && Object.keys(dashDisplayB).length === Object.keys(dashDisplayU).length) {",
+											"    tests[\"Number of DASH Display Objects\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of DASH Display Objects\"] = fail;",
+											"",
+											"if (Object.keys(dashRawB).length === Object.keys(dashRawE).length && Object.keys(dashRawB).length === Object.keys(dashRawU).length) {",
+											"    tests[\"Number of DASH Raw Objects\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of DASH Raw Objects\"] = fail;"
 										],
 										"type": "text/javascript"
 									}
@@ -533,7 +673,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{priceMF}}{{fsyms}}{{DASH}},{{ETH}},{{BTC}}{{tsyms}}{{BTC}},{{USD}},{{EUR}},{{JPY}}",
 									"host": [
@@ -553,7 +696,24 @@
 										"exec": [
 											"var pass = true;",
 											"var fail = false;",
-											"var data = JSON.parse(responseBody);"
+											"var data = JSON.parse(responseBody);",
+											"var displayBtcUsd = data.DISPLAY.BTC.USD;",
+											"var displayEthUsd = data.DISPLAY.ETH.USD;",
+											"var rawBtcUsd = data.RAW.BTC.USD;",
+											"var rawEthUsd = data.RAW.ETH.USD;",
+											"",
+											"if (Object.keys(displayBtcUsd).length === Object.keys(displayEthUsd).length) {",
+											"    tests[\"Number of Display Objects\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of Display Objects\"] = fail;",
+											"",
+											"if (Object.keys(rawBtcUsd).length === Object.keys(rawEthUsd).length) {",
+											"    tests[\"Number of Raw Objects\"] = pass;",
+											"}",
+											"else",
+											"    tests[\"Number of Raw Objects\"] = fail;",
+											""
 										],
 										"type": "text/javascript"
 									}
@@ -562,7 +722,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{priceMF}}{{fsyms}}{{BTC}},{{ETH}}{{tsyms}}{{USD}}{{e}}{{CB}}",
 									"host": [
@@ -571,6 +734,28 @@
 								}
 							},
 							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "e5f54ab6-0fdd-4ba7-8c76-ad5973f969a2",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "0d108370-a268-45a6-9990-8b8a0c3b67f7",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					],
 					"_postman_isSubFolder": true
@@ -597,7 +782,10 @@
 							"request": {
 								"method": "GET",
 								"header": [],
-								"body": {},
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
 								"url": {
 									"raw": "{{url}}{{avg}}{{fsym}}{{BTC}}{{tsym}}{{USD}}{{e}}{{CB}},{{BF}}",
 									"host": [
@@ -624,6 +812,28 @@
 								}
 							},
 							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"id": "27bf9eae-e62f-4f14-9790-fdf3589feb8c",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"id": "6181642e-94e1-4a3e-bb4e-0a556abebc7e",
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
 						}
 					],
 					"_postman_isSubFolder": true
